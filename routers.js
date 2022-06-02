@@ -52,26 +52,26 @@ router.get("/product", getAllProducts);
 router.post("/product", createProduct);
 
 //admin routes
-router.put("/user/:id", verifyTokenAndAuthorization, UpdateAdmin);
-router.delete("/user/:id", verifyTokenAndAuthorization, DeleteAdmin);
-router.get("/user/:id", verifyTokenAndAdmin, GetUserAdmin);
-router.get("/user", verifyTokenAndAdmin, GetAllUsers);
+router.put("/user/:id", UpdateAdmin);
+router.delete("/user/:id", DeleteAdmin);
+router.get("/user/:id", GetUserAdmin);
+router.get("/user", GetAllUsers);
 
-router.post("/product", verifyTokenAndAdmin, createProduct);
-router.put("/product/:id", verifyTokenAndAdmin, updateProduct);
-router.delete("/product/:id", verifyTokenAndAdmin, deleteProduct);
+router.post("/product", createProduct);
+router.put("/product/:id", updateProduct);
+router.delete("/product/:id", deleteProduct);
 
-router.post("/cart", verifyToken, CartCreate);
-router.put("/cart/:id", verifyTokenAndAuthorization, UpdatedCart);
-router.delete("/cart/:id", verifyTokenAndAuthorization, deleteCart);
-router.get("/cart/find/:userId", verifyTokenAndAuthorization, GetuserCart);
-router.get("/cart/", verifyTokenAndAdmin, GetallUserCart);
+router.post("/cart", CartCreate);
+router.put("/cart/:id", UpdatedCart);
+router.delete("/cart/:id", deleteCart);
+router.get("/cart/find/:userId", GetuserCart);
+router.get("/cart/", GetallUserCart);
 
-router.post("/order", verifyToken, OrderCreate);
-router.put("/order/:id", verifyTokenAndAuthorization, UpdatedCart);
-router.delete("/order/:id", verifyTokenAndAuthorization, deleteOrder);
-router.get("/order/find/:userId", verifyTokenAndAuthorization, Getuserorders);
-router.get("/order/", verifyTokenAndAdmin, GetallUserorders);
+router.post("/order", OrderCreate);
+router.put("/order/:id", UpdatedCart);
+router.delete("/order/:id", deleteOrder);
+router.get("/order/find/:userId", Getuserorders);
+router.get("/order/", GetallUserorders);
 
 router.post("/placeorder", placeOrder);
 router.get("/placeorder/:id", getOrders);
