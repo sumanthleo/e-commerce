@@ -23,6 +23,6 @@ app.get("/get-razorpay-key", (req, res) => {
   res.send({ key: process.env.RAZORPAY_KEY_ID });
 });
 
-app.listen(process.env.PORT || 8000, () => {
+app.listen(process.env.PORT || 8003, () => {
   console.log(`server is running on ${process.env.PORT}`);
 });
