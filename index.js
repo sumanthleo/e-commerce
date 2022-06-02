@@ -12,6 +12,7 @@ app.use(express.json());
 app.use(
   cors({
     origin: "https://foodclone-app.netlify.app",
+    credentials: true,
   })
 );
 
