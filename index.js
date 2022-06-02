@@ -1,20 +1,23 @@
 import express from "express";
 import dotenv from "dotenv";
 import connection from "./db.js";
-import bodyParser from "body-parser";
 import cors from "cors";
 import router from "./routers.js";
 
 dotenv.config();
 
 const app = express();
-app.use(bodyParser.json({ extented: true }));
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  next();
-});
+app.use(express.json());
+app.use(
+  cors({
+    allowedHeaders: ["sessionId", "Content-Type"],
+    exposedHeaders: ["sessionId"],
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    preflightContinue: false,
+  })
+);
+app.use(express.urlencoded({ extended: true }));
 
 //routes
 
