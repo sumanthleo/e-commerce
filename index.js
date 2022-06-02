@@ -9,18 +9,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-const whitelist = ["https://fantastic-bienenstitch-15b741.netlify.app"];
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin || whitelist.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true,
-};
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use(express.urlencoded({ extended: true }));
 
