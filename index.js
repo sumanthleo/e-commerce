@@ -18,10 +18,10 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/", router);
 
-app.use(express.static(path.dirname("flipkart-frontend/build")));
+app.use(express.static(path.dirname("./flipkart-frontend/build")));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.dirname("flipkart-frontend/build", "index.html"));
+  res.sendFile(path.dirname("./flipkart-frontend/build", "index.html"));
 });
 
 // dataBase
