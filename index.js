@@ -3,7 +3,6 @@ import dotenv from "dotenv";
 import connection from "./db.js";
 import cors from "cors";
 import router from "./routers.js";
-import path from "path";
 
 dotenv.config();
 
@@ -17,12 +16,6 @@ app.use(express.urlencoded({ extended: true }));
 //routes
 
 app.use("/", router);
-
-app.use(express.static(path.dirname("./flipkart-frontend/build")));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.dirname("./flipkart-frontend/build", "index.html"));
-});
 
 // dataBase
 connection();

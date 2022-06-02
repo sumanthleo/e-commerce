@@ -41,6 +41,9 @@ import {
   payorder,
 } from "./controller/PlaceOrder.js";
 
+router.get("/", (req, res) => {
+  res.send("Welcome to the backend");
+});
 //user routes
 router.post("/signup", Signup);
 router.post("/login", Login);

@@ -6,7 +6,6 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "heroku-postbuild": "cd flipkart-frontend && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
