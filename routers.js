@@ -43,7 +43,7 @@ import {
 
 //user routes
 router.get("/", (req, res) => {
-  res.send("Hello World");
+  res.send("<h1>Welcome to the API</h1>");
 });
 router.post("/signup", Signup);
 router.post("/login", Login);
