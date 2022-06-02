@@ -42,7 +42,7 @@ import {
 } from "./controller/PlaceOrder.js";
 
 //user routes
-router.post("/", (req, res) => {
+router.get("/", (req, res) => {
   res.send("Hello World");
 });
 router.post("/signup", Signup);
