@@ -42,6 +42,9 @@ import {
 } from "./controller/PlaceOrder.js";
 
 //user routes
+router.get("/", (req, res) => {
+  res.send("Hello World");
+});
 router.post("/signup", Signup);
 router.post("/login", Login);
 router.get("/product/:id", getProducts);
