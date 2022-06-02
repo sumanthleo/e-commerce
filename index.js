@@ -15,19 +15,13 @@ app.use(express.json());
 //     methods: "GET,POST,PUT,DELETE",
 //   })
 // );
+app.use(cors());
 
 app.use(express.urlencoded({ extended: true }));
 
 //routes
 
 app.use("/", router);
-
-app.use(
-  cors({
-    origin: "https://foodclone-app.netlify.app",
-    methods: "GET,POST,PUT,DELETE",
-  })
-);
 
 // dataBase
 connection();
