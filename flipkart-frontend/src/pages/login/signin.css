@@ -1,0 +1,31 @@
+.form {
+    max-width: 40%;
+    margin: 0 auto;
+    margin-bottom: 10%;
+}
+
+.form>div {
+    display: flex;
+    flex-direction: column;
+    margin: 1%;
+}
+
+.form label {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+input,
+select,
+textarea,
+button {
+    padding: 1%;
+    border-radius: 0.5rem;
+    border: 2px #a4a4a4 solid;
+    font-size: 15px;
+}
+
+button {
+    background-color: #f8f8f8;
+    cursor: pointer;
+}

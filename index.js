@@ -28,6 +28,12 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/", router);
 
+app.use(express.static(path.join(__dirname, "/flipkart-frontend/build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/flipkart-frontend/build", "index.html"));
+});
+
 // dataBase
 connection();
 
