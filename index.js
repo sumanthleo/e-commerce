@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.options("*", cors());
 //routes
-app.use("/", router);
+app.use("/api/", router);
 
 app.get("/", (req, res) => {
   res.send("Hello World");
@@ -25,6 +25,6 @@ app.get("/get-razorpay-key", (req, res) => {
   res.send({ key: process.env.RAZORPAY_KEY_ID });
 });
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 8000, () => {
   console.log(`server is running on ${process.env.PORT}`);
 });
