@@ -16,20 +16,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
     origin: "https://foodclone-app.netlify.app",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
   })
 );
-
-app.use(function (req, res, next) {
-  res.header(
-    "Access-Control-Allow-Origin",
-    "https://foodclone-app.netlify.app"
-  );
-  res.header("Access-Control-Allow-Headers", true);
-  res.header("Access-Control-Allow-Credentials", true);
-  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-  next();
-});
 
 app.use("/", router);
 

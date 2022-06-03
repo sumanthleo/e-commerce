@@ -49,8 +49,12 @@ router.post("/signup", Signup);
 router.post("/login", Login);
 router.get("/product/:id", getProducts);
 router.get("/product", getAllProducts);
-router.post("/product", createProduct);
+router.post("/products", createProduct);
 
+// router.get('/', (req, res) => {
+//   res.setHeader('Content-Type', 'application/json');
+//   res.setHeader('Content-Type', 'text/html');
+// });
 //admin routes
 router.put("/user/:id", UpdateAdmin);
 router.delete("/user/:id", DeleteAdmin);
