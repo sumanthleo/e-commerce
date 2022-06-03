@@ -24,13 +24,13 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.use(
-  cors({
-    origin: "https://foodclone-app.netlify.app",
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: "https://foodclone-app.netlify.app",
+//     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//     credentials: true,
+//   })
+// );
 
 app.use("/", router);
 
