@@ -32,14 +32,22 @@ import { CART_EMPTY } from "../constants/cartConstants";
 import Axios from "axios";
 
 export const createOrder = (order) => async (dispatch, getState) => {
-  dispatch({
-    type: ORDER_CREATE_REQUEST,
-    payload: order,
-  });
   try {
+    dispatch({
+      type: ORDER_CREATE_REQUEST,
+      payload: order,
+    });
+    const {
+      userSignin: { users },
+    } = getState();
     const { data } = await Axios.post(
       "https://zomato-backend-api.herokuapp.com/placeorder",
-      order
+      order,
+      {
+        headers: {
+          Authorization: " Bearer " + users.token,
+        },
+      }
     );
     dispatch({
       type: ORDER_CREATE_SUCCESS,
@@ -59,11 +67,16 @@ export const createOrder = (order) => async (dispatch, getState) => {
 };
 
 export const detailsOrder = (orderId) => async (dispatch, getState) => {
-  dispatch({ type: ORDER_DETAILS_REQUEST, payload: orderId });
-
   try {
+    dispatch({ type: ORDER_DETAILS_REQUEST, payload: orderId });
+    const {
+      userSignin: { users },
+    } = getState();
     const { data } = await Axios.get(
-      `https://zomato-backend-api.herokuapp.com/placeorder/${orderId}`
+      `https://zomato-backend-api.herokuapp.com/placeorder/${orderId}`,
+      {
+        headers: { Authorization: "Bearer " + users.token },
+      }
     );
     dispatch({ type: ORDER_DETAILS_SUCCESS, payload: data });
   } catch (error) {
@@ -79,12 +92,17 @@ export const payOrder = (order, paymentResult) => async (
   dispatch,
   getState
 ) => {
-  dispatch({ type: ORDER_PAY_REQUEST, payload: { order, paymentResult } });
-
   try {
+    dispatch({ type: ORDER_PAY_REQUEST, payload: { order, paymentResult } });
+    const {
+      userSignin: { users },
+    } = getState();
     const { data } = Axios.put(
       `https://zomato-backend-api.herokuapp.com/placeorder/${order._id}/pay`,
-      paymentResult
+      paymentResult,
+      {
+        headers: { Authorization: "Bearer " + users.token },
+      }
     );
     dispatch({ type: ORDER_PAY_SUCCESS, payload: data });
   } catch (error) {
@@ -97,11 +115,17 @@ export const payOrder = (order, paymentResult) => async (
 };
 
 export const listOrderMine = () => async (dispatch, getState) => {
-  dispatch({ type: ORDER_MINE_LIST_REQUEST });
-
   try {
+    dispatch({ type: ORDER_MINE_LIST_REQUEST });
+    const {
+      userSignin: { users },
+    } = getState();
+
     const { data } = await Axios.get(
-      "https://zomato-backend-api.herokuapp.com/placeorder/mine"
+      "https://zomato-backend-api.herokuapp.com/placeorder/mine",
+      {
+        headers: { Authorization: "Bearer " + users.token },
+      }
     );
     dispatch({ type: ORDER_MINE_LIST_SUCCESS, payload: data });
   } catch (error) {
