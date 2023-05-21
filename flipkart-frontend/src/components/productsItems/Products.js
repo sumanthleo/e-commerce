@@ -3,7 +3,7 @@ import "./products.css";
 import axios from "axios";
 import Product from "./Product";
 
-function Products({ cat, filters, sort }) {
+function Products({ cat=false, filters, sort }) {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
 
@@ -12,7 +12,7 @@ function Products({ cat, filters, sort }) {
       const response = await axios.get(
         cat
           ? `https://zomato-backend-api.herokuapp.com/product?category=${cat}`
-          : "https://zomato-backend-api.herokuapp.com/product"
+          : "https://microservices-gateway.onrender.com/products"
       );
       setProducts(response.data);
     };

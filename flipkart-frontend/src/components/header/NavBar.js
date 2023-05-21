@@ -35,7 +35,7 @@ function NavBar() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        "https://zomato-backend-api.herokuapp.com/product"
+        "https://e-commerce-u66b.onrender.com/product"
       );
       setData(response.data);
     };

@@ -73,7 +73,7 @@ export const detailsOrder = (orderId) => async (dispatch, getState) => {
       userSignin: { users },
     } = getState();
     const { data } = await Axios.get(
-      `https://zomato-backend-api.herokuapp.com/placeorder/${orderId}`,
+      `https://e-commerce-u66b.onrender.com/placeorder/${orderId}`,
       {
         headers: { Authorization: "Bearer " + users.token },
       }
@@ -98,7 +98,7 @@ export const payOrder = (order, paymentResult) => async (
       userSignin: { users },
     } = getState();
     const { data } = Axios.put(
-      `https://zomato-backend-api.herokuapp.com/placeorder/${order._id}/pay`,
+      `https://e-commerce-u66b.onrender.com/placeorder/${order._id}/pay`,
       paymentResult,
       {
         headers: { Authorization: "Bearer " + users.token },
@@ -122,7 +122,7 @@ export const listOrderMine = () => async (dispatch, getState) => {
     } = getState();
 
     const { data } = await Axios.get(
-      "https://zomato-backend-api.herokuapp.com/placeorder/mine",
+      "https://e-commerce-u66b.onrender.com/placeorder/mine",
       {
         headers: { Authorization: "Bearer " + users.token },
       }

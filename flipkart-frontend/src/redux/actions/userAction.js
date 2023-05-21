@@ -13,7 +13,7 @@ export const register = (username, email, password) => async (dispatch) => {
   dispatch({ type: USER_REGISTER_REQUEST, payload: { email, password } });
   try {
     const { data } = await Axios.post(
-      "https://zomato-backend-api.herokuapp.com/signup",
+      "https://microservices-gateway.onrender.com/users/signup",
       {
         username,
         email,
@@ -38,7 +38,7 @@ export const signin = (email, password) => async (dispatch) => {
   dispatch({ type: USER_SIGNIN_REQUEST, payload: { email, password } });
   try {
     const { data } = await Axios.post(
-      "https://zomato-backend-api.herokuapp.com/login",
+      "https://microservices-gateway.onrender.com/users/login",
       {
         email,
         password,

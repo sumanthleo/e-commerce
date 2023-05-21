@@ -16,7 +16,7 @@ function SinglePost() {
   useEffect(() => {
     const getProducts = async () => {
       const response = await axios.get(
-        "https://zomato-backend-api.herokuapp.com/product/" + location
+        "https://microservices-gateway.onrender.com/products/" + location
       );
 
       setProduct(response.data);
